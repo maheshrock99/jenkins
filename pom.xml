@@ -17,31 +17,31 @@
 		<mule.maven.plugin.version>4.1.0</mule.maven.plugin.version>
 	</properties>
 	<build>
-    <plugins>
-        <plugin>
-            <groupId>org.mule.tools.maven</groupId>
-            <artifactId>mule-maven-plugin</artifactId>
-            <version>4.1.0</version> <!-- Adjust version as needed -->
-            <extensions>true</extensions>
-            <configuration>
-    <cloudHubDeployment>
-        <uri>https://anypoint.mulesoft.com</uri> <!-- Corrected the URI -->
-        <muleVersion>(mule.version)</muleVersion>
-        <username>$(anypoint.username)</username>
-        <password>$(anypoint.password)</password>
-        <applicationName>$(appname)</applicationName>
-        <environment>env</environment>
-        <workerType>$(vcore)</workerType>
-        <objectStoreV2>true</objectStoreV2>
-        <businessGroup>$(business)</businessGroup>
-        <workers>$(workers)</workers>
-    </cloudHubDeployment>
-    <classifier>mule-application</classifier>
-</configuration> 
-        </plugin>
-        <!-- Other plugins and configurations -->
-    </plugins>
-</build>
+		<plugins>
+			<plugin>
+				<groupId>org.mule.tools.maven</groupId>
+				<artifactId>mule-maven-plugin</artifactId>
+				<version>4.1.0</version>
+				<extensions>true</extensions>
+				<configuration>
+					<cloudHubDeployment>
+						<uri>https://anypoint.mulesoft.com</uri>
+						<muleVersion>${mule.version}</muleVersion>
+						<!-- Corrected the closing curly brace -->
+						<username>${anypoint.username}</username>
+						<password>${anypoint.password}</password>
+						<environment>${env}</environment>
+						<applicationName>$(appname)</applicationName>
+						<businessGroup>${business}</businessGroup>
+						<workerType>${vCore}</workerType>
+						<workers>${workers}</workers>
+						<!-- Corrected the closing curly brace -->
+						<objectStoreV2>true</objectStoreV2>
+					</cloudHubDeployment>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 	<dependencies>
 		<dependency>
 			<groupId>org.mule.connectors</groupId>
