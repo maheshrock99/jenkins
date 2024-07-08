@@ -16,39 +16,32 @@
 		<app.runtime>4.6.1</app.runtime>
 		<mule.maven.plugin.version>4.1.0</mule.maven.plugin.version>
 	</properties>
-
 	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-clean-plugin</artifactId>
-				<version>3.2.0</version>
-			</plugin>
-			<plugin>
-				<groupId>org.mule.tools.maven</groupId>
-				<artifactId>mule-maven-plugin</artifactId>
-				<version>${mule.maven.plugin.version}</version>
-				<extensions>true</extensions>
-			<configuration>
-			    <cloudHubDeployment>
-			        <uri>https://anypoint.mulesoft.com</uri> <!-- Corrected the URI -->
-			        <muleVersion>(mule.version)</muleVersion>
-			        <username>$(anypoint.username)</username>
-			        <password>$(anypoint.password)</password>
-			        <applicationName>$(appname)</applicationName>
-			        <environment>env</environment>
-			        <workerType>$(vcore)</workerType>
-			        <objectStoreV2>true</objectStoreV2>
-			        <businessGroup>$(business)</businessGroup>
-			        <workers>$(workers)</workers>
-			    </cloudHubDeployment>
-			    <classifier>mule-application</classifier>
-			</configuration>
-
-			</plugin>
-		</plugins>
-	</build>
-
+    <plugins>
+        <plugin>
+            <groupId>org.mule.tools.maven</groupId>
+            <artifactId>mule-maven-plugin</artifactId>
+            <version>4.1.0</version> <!-- Adjust version as needed -->
+            <extensions>true</extensions>
+            <configuration>
+    <cloudHubDeployment>
+        <uri>https://anypoint.mulesoft.com</uri> <!-- Corrected the URI -->
+        <muleVersion>(mule.version)</muleVersion>
+        <username>$(anypoint.username)</username>
+        <password>$(anypoint.password)</password>
+        <applicationName>$(appname)</applicationName>
+        <environment>env</environment>
+        <workerType>$(vcore)</workerType>
+        <objectStoreV2>true</objectStoreV2>
+        <businessGroup>$(business)</businessGroup>
+        <workers>$(workers)</workers>
+    </cloudHubDeployment>
+    <classifier>mule-application</classifier>
+</configuration> 
+        </plugin>
+        <!-- Other plugins and configurations -->
+    </plugins>
+</build>
 	<dependencies>
 		<dependency>
 			<groupId>org.mule.connectors</groupId>
